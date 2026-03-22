@@ -19,6 +19,6 @@ export const stripeWebhook=async (req, res) => {
             const credits= Number(session.metadata.credits);
             await User.findByIdAndUpdate(userId, plan, {$inc: { credits} })
         }
-    return res.status(200).json({ message: "Webhook received successfully" });
+    return res.status(200).json({ received:true });
 
 }
