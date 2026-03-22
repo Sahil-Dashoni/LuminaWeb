@@ -14,6 +14,7 @@ export const stripeWebhook = async (req, res) => {
 
     if (event.type === 'checkout.session.completed') {
         const session = event.data.object;
+        if (session.payment_status !== "paid") return;
         const userId = session.metadata.userId;
         const plan = session.metadata.plan;
         const credits = Number(session.metadata.credits);
