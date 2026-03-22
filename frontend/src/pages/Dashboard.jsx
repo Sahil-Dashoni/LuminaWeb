@@ -116,9 +116,9 @@ function Dashboard() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.05 }}
                                 whileHover={{ y: -6 }}
-                                onClick={() => navigate(`/editor/${w._id}`)}
+                                
                             >
-                                <div className='relative h-40 bg-black cursor-pointer'>
+                                <div className='relative h-40 bg-black cursor-pointer' onClick={() => navigate(`/editor/${w._id}`)}>
                                     <iframe loading="lazy" srcDoc={w.latestCode} title={w.title} className='absolute inset-0 w-[140%] h-[140%] origin-top-left pointer-events-none scale-[0.72] bg-white' />
                                     <div className='absolute inset-0 bg-black/30' />
                                 </div>
