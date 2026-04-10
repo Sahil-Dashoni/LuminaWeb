@@ -46,7 +46,7 @@ function Home() {
                 setWebsites(result.data || []);
             } catch (error) {
                 console.error('Error fetching websites:', error);
-                
+
             }
         }
 
@@ -61,11 +61,18 @@ function Home() {
                 transition={{ duration: 0.75 }}
                 className='fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/40 border-b border-white/10'
             >
-                <div className='max-w-7xl mx-auto px-6 py-4 flex justify-between items-center'>
-                    <div className='text-xl font-semibold'>
-                        LuminaWeb
+                <div className='max-w-7xl mx-auto  flex justify-between items-center'>
+                    <div
+                        className='flex items-center cursor-pointer w-50'
+                        onClick={() => navigate('/')}
+                    >
+                        <img
+                            src="/default2.png"
+                            alt="LuminaWeb Logo"
+                            className="h-15 w-full object-contain"
+                        />
                     </div>
-                    <div className='flex items-center gap-4'>
+                    <div className='flex items-center gap-4 px-6 py-4'>
                         <div className='hidden md:inline text-sm text-zinc-400 hover:text-white cursor-pointer' onClick={() => navigate('/pricing')}>
                             Pricing
                         </div>
@@ -131,7 +138,13 @@ function Home() {
                 >
                     Build Awesome Websites with
                     <br />
-                    <span className='bg-linear-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent'>LuminaWeb</span>
+                    <div>
+                        <img
+                            src="/profile2.png"
+                            alt="LuminaWeb"
+                            className="h-15 w-full object-contain"
+                        />
+                    </div>
                 </motion.h1>
 
                 <motion.p
@@ -148,7 +161,7 @@ function Home() {
                     transition={{ duration: 0.75, delay: 0.25 }}
                     className='mt-8 flex justify-center gap-4'
                 >
-                    <button className='px-6 py-3 rounded-lg bg-linear-to-r from-purple-600 to-blue-500 text-white text-sm font-medium hover:from-purple-700 hover:to-blue-600 hover:scale-105 transition' onClick={() => userData? navigate('/dashboard'): setOpenLogin(true)}>
+                    <button className='px-6 py-3 rounded-lg bg-linear-to-r from-purple-600 to-blue-500 text-white text-sm font-medium hover:from-purple-700 hover:to-blue-600 hover:scale-105 transition' onClick={() => userData ? navigate('/dashboard') : setOpenLogin(true)}>
                         {userData ? "Go to Dashboard" : "Get Started"}
                     </button>
                     <button className='px-6 py-3 rounded-lg border border-white/20 hover:bg-white/10 text-sm font-medium'>
@@ -180,10 +193,10 @@ function Home() {
                 <section className='max-w-7xl mx-auto px-6 pb-32'>
                     <h2 className='text-2xl font-bold text-center mb-8'>Your Websites</h2>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-                        {websites.slice(0,3).map((w,i) => (
+                        {websites.slice(0, 3).map((w, i) => (
                             <motion.div
                                 key={w._id}
-                                whileHover={{  y: -8 }}
+                                whileHover={{ y: -8 }}
                                 className='bg-[#1a1a1a] rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:bg-white/10 transition'
                                 onClick={() => navigate(`/editor/${w._id}`)}
                             >
